@@ -12,6 +12,14 @@ _Dans ce `docker-compose.yml`, repérez tout ce que Compose fait **pour vous** e
 
 Réponse :
 
+dans hotels-service (ligne 63), il y a le mot-clé : 
+```
+depends_on:
+    postgres-hotels:                
+        condition: service_healthy
+```
+Il permet d'attendre jusqu'à ce que la base soit prete plutot que seulement demarrée
+
 
 ### Question 2
 
@@ -19,6 +27,7 @@ _Pourquoi faut-il impérativement faire `docker compose down` avant de continuer
 
 Réponse :
 
+Sinon les ports sont continués à etre utilisés
 
 ## Étape 2 — Kubernetes + Argo CD : la migration
 
@@ -29,11 +38,13 @@ _En mode push, qui détient les droits d'administration sur le cluster ? Citez d
 Réponse :
 
 
+
 ### Question 4
 
 _Un collègue modifie « à la main » le nombre de réplicas d'un déploiement avec `kubectl scale` sur un cluster géré par Argo CD. D'après le principe 4, que va-t-il se passer ? Est-ce souhaitable ?_
 
 Réponse :
+
 
 
 ### Question 5
